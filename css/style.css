@@ -1,0 +1,586 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  margin: 0;
+}
+html {
+  cursor: url(../img/riasCursor.png) 12 12, auto;
+}
+button {
+  cursor: pointer;
+}
+.body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.ContainerGray {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: gray;
+  opacity: 0.5;
+  transition: 0.5s;
+  display: none;
+  position: fixed;
+}
+.backSide {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.videoClass {
+  width: 100vw;
+  height: 50vh;
+  margin: 0 auto;
+  display: none;
+  opacity: 0;
+  transition: 1s ease;
+  position: absolute;
+  z-index: 12;
+  margin-inline: auto;
+  inset-inline: 0;
+  inset-block-start: calc(20%);
+}
+.backSide img {
+  filter: brightness(70%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+.btnTyanLeft {
+  padding: 0;
+  border: none;
+  left: 0;
+  z-index: 11;
+  position: fixed;
+  top: 12%;
+  width: 10rem;
+  height: 10rem;
+  background: transparent;
+  display: flex;
+  opacity: 1;
+  transition: 1s ease;
+}
+.btnTyanRight {
+  padding: 0;
+  border: none;
+  position: fixed;
+  right: 0;
+  z-index: 11;
+  top: 12%;
+  width: 10rem;
+  height: 10rem;
+  background: transparent;
+  display: flex;
+  opacity: 1;
+  transition: 1s ease;
+}
+.imgTyanLeft {
+  /* Размеры и позиционирование */
+  width: auto; /* Меняем с 100% на auto */
+  height: 100vh; /* Полная высота экрана */
+  max-width: 40vw; /* Максимальная ширина */
+  min-width: 12.5rem; /* Минимальная ширина для мобильных */
+
+  /* Фон и отображение */
+  background-image: url(../img/riasLeft.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+
+  /* Позиционирование */
+  position: fixed;
+  inset-block-start: 0%;
+  inset-inline: 0;
+  margin-inline: auto;
+
+  /* Остальные свойства */
+  cursor: pointer;
+  z-index: 11;
+  transition: 1s ease;
+  opacity: 0;
+  display: none;
+
+  /* Сохраняем пропорции */
+  object-fit: contain;
+  aspect-ratio: auto; /* Или задайте конкретное соотношение */
+}
+.imgTyanLeftHentai {
+  /* Размеры и позиционирование */
+  width: auto; /* Меняем с 100% на auto */
+  height: 100vh; /* Полная высота экрана */
+  max-width: 40vw; /* Максимальная ширина */
+  min-width: 12.5rem; /* Минимальная ширина для мобильных */
+
+  /* Фон и отображение */
+  background-image: url(../img/riasLeftHentai.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+
+  /* Позиционирование */
+  position: fixed;
+  inset-block-start: 0%;
+  inset-inline: 0;
+  margin-inline: auto;
+
+  /* Остальные свойства */
+  cursor: pointer;
+  z-index: 11;
+  transition: 1s ease;
+  opacity: 0;
+  display: none;
+
+  /* Сохраняем пропорции */
+  object-fit: contain;
+  aspect-ratio: auto; /* Или задайте конкретное соотношение */
+}
+.imgTyanRight {
+  /* Размеры и позиционирование */
+  width: auto; /* Меняем с 100% на auto */
+  height: 100vh; /* Полная высота экрана */
+  max-width: 32vw; /* Максимальная ширина */
+  min-width: 12.5rem; /* Минимальная ширина для мобильных */
+
+  /* Фон и отображение */
+  background-image: url(../img/Akeno.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+
+  /* Позиционирование */
+  position: fixed;
+  inset-block-start: 0%;
+  inset-inline: 0;
+  margin-inline: auto;
+
+  /* Остальные свойства */
+  cursor: pointer;
+  z-index: 11;
+  transition: 1s ease;
+  opacity: 0;
+  display: none;
+
+  /* Сохраняем пропорции */
+  object-fit: contain;
+  aspect-ratio: auto; /* Или задайте конкретное соотношение */
+}
+.imgTyanRightHentai {
+  /* Размеры и позиционирование */
+  width: auto; /* Меняем с 100% на auto */
+  height: 100vh; /* Полная высота экрана */
+  max-width: 40vw; /* Максимальная ширина */
+  min-width: 12.5rem; /* Минимальная ширина для мобильных */
+
+  /* Фон и отображение */
+  background-image: url(../img/AkenoRightHentai.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+
+  /* Позиционирование */
+  position: fixed;
+  inset-block-start: 0%;
+  inset-inline: 0;
+  margin-inline: auto;
+
+  /* Остальные свойства */
+  cursor: pointer;
+  z-index: 11;
+  transition: 1s ease;
+  opacity: 0;
+  display: none;
+
+  /* Сохраняем пропорции */
+  object-fit: contain;
+  aspect-ratio: auto; /* Или задайте конкретное соотношение */
+}
+.header {
+  margin: 0 auto;
+  max-width: 100rem;
+  height: 4rem;
+  position: relative;
+  z-index: 2;
+}
+.navMenu {
+  max-width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  background-image: url(../img/maxresdefault.jpg);
+  background-size: cover;
+}
+.navElement {
+  height: 4rem;
+  padding-left: 2rem;
+  cursor: pointer;
+  width: 25%;
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.navElement:hover {
+  color: blue;
+  -webkit-box-shadow: 0px 20px 15px -10px rgba(138, 138, 209, 1);
+  -moz-box-shadow: 0px 20px 15px -10px rgba(138, 138, 209, 1);
+  box-shadow: 0px 20px 15px -10px rgba(138, 138, 209, 1);
+  font-size: 2rem;
+}
+.rise {
+  background-image: url(../img/Науфуми.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.mainContainer {
+  margin: 0 auto;
+  max-width: 100rem;
+  max-height: 70rem;
+  position: relative;
+  z-index: 2;
+}
+.audio {
+  margin: 0 auto;
+  margin-top: 3rem;
+  width: 33%;
+  height: 10rem;
+  background-image: url(../img/player.jpg);
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+.audioPlayer {
+  width: 100%;
+  height: 7rem;
+  background-image: url(../img/audio-player-for-windows-mac.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right 0;
+}
+.PlayMusic {
+  width: 100%;
+  height: 3rem;
+  background-image: url(../img/PlayerPlay.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}
+.StopPlayMusic {
+  width: 100%;
+  height: 3rem;
+  background-image: url(../img/StopPlayMusic.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  display: none;
+}
+.sliderMain {
+  max-width: 60rem;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 2rem;
+  justify-content: center;
+}
+.sliderContainer {
+  margin: 0;
+  display: flex;
+  z-index: 2;
+  overflow: hidden;
+}
+.slider-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Анимация для перемещения слайдов */
+}
+.sliderBtnPrev {
+  cursor: pointer;
+  margin-top: 2rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  z-index: 3;
+  color: white;
+  pointer-events: auto;
+}
+.sliderBtnNext {
+  cursor: pointer;
+  margin-top: 2rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  z-index: 3;
+  color: white;
+  pointer-events: auto;
+}
+.slider {
+  margin: 0 auto;
+  margin-top: 1rem;
+  width: 100%;
+  height: 25rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  transition: 0.5s;
+  right: 0rem;
+  position: relative;
+}
+.Anime,
+.Manga,
+.Japan,
+.Top {
+  opacity: 0;
+  display: none;
+}
+.slide {
+  flex: 0 0 100%;
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  transition: transform 0.5s ease;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+}
+.textContainer {
+  margin: 0 auto;
+  padding: 1rem;
+  margin-top: 1rem;
+  max-width: 80rem;
+  height: 30rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.sliderHead {
+  display: flex;
+  max-width: 80rem;
+  height: 30rem;
+  position: relative;
+  right: 0rem;
+}
+.slideText {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%; /* Добавляем ограничение максимальной ширины */
+  height: auto; /* Меняем фиксированную высоту на адаптивную */
+  min-height: 30rem; /* Минимальная высота вместо фиксированной */
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  line-height: 1.5; /* Лучше использовать относительное значение */
+  align-items: center;
+  text-align: justify;
+  font-size: clamp(1.2rem, 4vw, 1.7rem); /* Адаптивный размер шрифта */
+  box-sizing: border-box; /* Учитываем padding в общей ширине */
+  word-break: break-word; /* Перенос длинных слов */
+  overflow-wrap: break-word; /* Альтернативный вариант переноса */
+  margin: 0 auto; /* Центрирование */
+}
+.footer {
+  margin: 0 auto;
+  margin-top: 5rem;
+  max-width: 100rem;
+  height: 10rem;
+  background-color: black;
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 2rem;
+  background: transparent;
+}
+.footerText {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  font-size: 2rem;
+}
+.footerTextEnd {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  color: red;
+}
+
+@media screen and (max-width: 75rem) {
+  .audio {
+    width: 50%;
+    height: 50%;
+    margin-top: 5rem;
+  }
+  .slider {
+    height: 20rem;
+  }
+  .textContainer {
+    max-width: 70rem;
+  }
+}
+@media screen and (max-width: 64rem) {
+  .audio {
+    width: 60%;
+    margin-top: 5rem;
+  }
+  .btnTyanLeft {
+    width: 7rem;
+    height: 7rem;
+  }
+  .btnTyanRight {
+    width: 7rem;
+    height: 7rem;
+  }
+  .textContainer {
+    max-width: 60rem;
+  }
+  .slideText {
+    padding: 0.8rem;
+    min-height: 15rem;
+    line-height: 1.2;
+  }
+  .imgTyanLeft {
+    max-width: 80vw; /* Еще шире для маленьких экранов */
+    height: 85vh;
+    margin-top: 15vh;
+  }
+  .imgTyanLeftHentai {
+    max-width: 80vw; /* Еще шире для маленьких экранов */
+    height: 85vh;
+    margin-top: 15vh;
+  }
+  .imgTyanRight {
+    max-width: 80vw; /* Еще шире для маленьких экранов */
+    height: 85vh;
+    margin-top: 15vh;
+  }
+  .imgTyanRightHentai {
+    max-width: 80vw; /* Еще шире для маленьких экранов */
+    height: 85vh;
+    margin-top: 15vh;
+  }
+}
+@media screen and (max-width: 48rem) {
+  .slider {
+    height: 15rem;
+  }
+  .navMenu {
+    flex-wrap: wrap;
+    height: 8rem;
+  }
+  .navElement {
+    width: 50%;
+    font-size: 1.5rem;
+    height: 4rem;
+  }
+  .btnTyanLeft {
+    top: 16%;
+  }
+  .btnTyanRight {
+    top: 16%;
+  }
+  .audio {
+    width: 50%;
+    height: 50%;
+    margin-top: 5rem;
+  }
+  .audioPlayer {
+    height: 5rem;
+  }
+  .StopplayMusic {
+    width: 100%;
+    height: 2rem;
+  }
+  .slideText {
+    padding: 1rem;
+    min-height: 12rem;
+    line-height: 1.5rem;
+  }
+  .imgTyanLeft {
+    max-width: 90vw; /* Еще шире для маленьких экранов */
+    height: 80vh;
+    margin-top: 20vh;
+  }
+  .imgTyanLeftHentai {
+    max-width: 100vw; /* Еще шире для маленьких экранов */
+    height: 65vh;
+    margin-top: 30vh;
+  }
+  .imgTyanRight {
+    max-width: 90vw; /* Еще шире для маленьких экранов */
+    height: 75vh;
+    margin-top: 25vh;
+  }
+  .imgTyanRightHentai {
+    max-width: 80vw; /* Еще шире для маленьких экранов */
+    height: 88vh;
+    margin-top: 15vh;
+  }
+  .slide img {
+    width: 100%;
+    height: 70%;
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  .audio {
+    width: 50%;
+    height: 50%;
+    margin-top: 5rem;
+    background-image: url(../img/playerMobile.png);
+  }
+  .navElement {
+    width: 50%;
+    font-size: 1rem;
+  }
+  .navElement:hover {
+    font-size: 1rem;
+  }
+  .slideText {
+    padding: 1rem;
+    line-height: 0.8rem;
+    min-height: 10rem;
+  }
+  .btnTyanLeft {
+    width: 5rem;
+    height: 5rem;
+  }
+  .btnTyanRight {
+    width: 5rem;
+    height: 5rem;
+  }
+  .imgTyanLeft {
+    max-width: 80vw; /* Еще шире для маленьких экранов */
+    height: 85vh;
+  }
+  .imgTyanLeftHentai {
+    max-width: 80vw; /* Еще шире для маленьких экранов */
+    height: 85vh;
+  }
+  .imgTyanRight {
+    max-width: 80vw; /* Еще шире для маленьких экранов */
+    height: 85vh;
+  }
+  .imgTyanRightHentai {
+    max-width: 80vw; /* Еще шире для маленьких экранов */
+    height: 85vh;
+  }
+}
