@@ -53,6 +53,8 @@ button {
   z-index: 1;
 }
 .btnTyanLeft {
+  max-width: 100vw;
+  max-height: 100vh;
   padding: 0;
   border: none;
   left: 0;
@@ -67,6 +69,8 @@ button {
   transition: 1s ease;
 }
 .btnTyanRight {
+  max-width: 100vw;
+  max-height: 100vh;
   padding: 0;
   border: none;
   position: fixed;
