@@ -565,6 +565,7 @@ button {
   .btnTyanLeft {
     width: 5rem;
     height: 5rem;
+    object-fit: contain;
   }
   .btnTyanRight {
     width: 5rem;
