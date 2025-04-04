@@ -37,6 +37,8 @@ imgTyanLeftHentai.addEventListener("click", function () {
             enableClicks = null;
           }
           containerGrayEnd();
+          video.style.display = "none";
+          video.style.opacity = "0";
         },
         { once: true }
       );
@@ -115,6 +117,10 @@ playMusic.addEventListener("click", function () {
   myAudio.play();
   playMusic.style.display = "none";
   audioStop.style.display = "flex";
+  myAudio.addEventListener("ended", function () {
+    playMusic.style.display = "flex";
+    audioStop.style.display = "none";
+  });
 });
 audioStop.addEventListener("click", function () {
   myAudio.pause();
