@@ -97,7 +97,7 @@ function Manga() {
         <div class="sliderContainer">
           <div class="slider" id="Manga">
             <div class="slide">
-              <img src="img/Манга1.jpg" alt="Манга Книга" />
+              <img src="img/Манга1.webp" alt="Манга Книга" />
             </div>
             <div class="slide">
               <img src="img/Манга2.jpg" alt="Манга Девушка" />
@@ -109,7 +109,7 @@ function Manga() {
               <img src="img/Манга4.jpg" alt="Как выглядит Манга в магазине" />
             </div>
             <div class="slide">
-              <img src="img/Манга1.jpg" alt="Манга Книга" />
+              <img src="img/Манга1.webp" alt="Манга Книга" />
             </div>
           </div>
         </div>
@@ -276,7 +276,7 @@ function Top() {
         <button class="sliderBtnPrev">&lt;</button>
         <div class="sliderContainer">
           <div class="slider " id="Top">
-          <div class="slide"><img src="img/Гуренн-Лаганн.jpg" /></div>
+          <div class="slide"><img src="img/Гуренн-Лаганн.webp" /></div>
           <div class="slide">
             <img src="img/СтальнойАлхимик.webp" alt="" />
           </div>
@@ -284,11 +284,11 @@ function Top() {
             <img src="img/ТвояАпрельскаяЛож.png" alt="" />
           </div>
           <div class="slide"><img src="img/КодГиас.jpg" alt="" /></div>
-          <div class="slide"><img src="img/AngelBeats.jpg" alt="" /></div>
+          <div class="slide"><img src="img/AngelBeats.webp" alt="" /></div>
           <div class="slide">
-            <img src="img/NoGameNoLife.png" alt="" />
+            <img src="img/NoGameNoLife.webp" alt="" />
           </div>
-          <div class="slide"><img src="img/Гуренн-Лаганн.jpg" /></div>
+          <div class="slide"><img src="img/Гуренн-Лаганн.webp" /></div>
         </div>
         </div>
         <button class="sliderBtnNext">&gt;</button>

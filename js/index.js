@@ -4,7 +4,6 @@ import { Anime, Manga, Japan, Top } from "./Content.js";
 
 // Для запуска видео/////////////////////////////////////////////////////////////
 
-const myAudio = document.getElementById("audio");
 const myAudioH = document.getElementById("audioH");
 const audioClick = document.querySelector(".audio");
 const video = document.getElementById("video");
@@ -13,11 +12,11 @@ const imgTyanRightHentai = document.querySelector(".imgTyanRightHentai");
 let enableClicks;
 
 imgTyanLeftHentai.addEventListener("click", function () {
-  myAudioH.volume = 0.2;
+  myAudioH.volume = 0.5;
   myAudioH.play();
   const currentCount = (Number(localStorage.getItem("keyEnterLeft")) || 0) + 1;
   localStorage.setItem("keyEnterLeft", currentCount);
-  if (currentCount === 3) {
+  if (currentCount === 1) {
     imgTyanLeftHentai.style.opacity = "0";
     setTimeout(() => {
       imgTyanLeftHentai.style.display = "none";
@@ -45,11 +44,11 @@ imgTyanLeftHentai.addEventListener("click", function () {
   }
 });
 imgTyanRightHentai.addEventListener("click", function () {
-  myAudioH.volume = 0.2;
+  myAudioH.volume = 0.5;
   myAudioH.play();
   const currentCount = (Number(localStorage.getItem("keyEnterRight")) || 0) + 1;
   localStorage.setItem("keyEnterRight", currentCount);
-  if (currentCount === 3) {
+  if (currentCount === 1) {
     imgTyanRightHentai.style.opacity = "0";
     setTimeout(() => {
       imgTyanRightHentai.style.display = "none";
@@ -101,12 +100,18 @@ function disableClicks() {
 
 // Для запуска видео end/////////////////////////////////////////////////////////
 
-// Для запуска музыки при клики end//////////////////////////////////////////////
+// Для запуска музыки при клике //////////////////////////////////////////////
+const myAudio = document.getElementById("audio");
 const playMusic = document.querySelector(".PlayMusic");
 const audioStop = document.querySelector(".StopPlayMusic");
+const volumeControl = document.getElementById("volumeControl");
+
+volumeControl.addEventListener("input", function () {
+  myAudio.volume = this.value;
+});
+myAudio.volume = volumeControl.value;
 
 playMusic.addEventListener("click", function () {
-  myAudio.volume = 0.2;
   myAudio.play();
   playMusic.style.display = "none";
   audioStop.style.display = "flex";
@@ -116,10 +121,8 @@ audioStop.addEventListener("click", function () {
   playMusic.style.display = "flex";
   audioStop.style.display = "none";
 });
-video.addEventListener("ended", function () {
-  video.style.display = "none";
-});
-// Для запуска музыки при клике/////////////////////////////////////////
+
+// Для запуска музыки при клике end/////////////////////////////////////////
 
 // JS Header/////////////////////////////////////////////////////////////////////
 
