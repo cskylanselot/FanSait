@@ -71,6 +71,8 @@ imgTyanRightHentai.addEventListener("click", function () {
             enableClicks = null;
           }
           containerGrayEnd();
+          video.style.display = "none";
+          video.style.opacity = "0";
         },
         { once: true }
       );
