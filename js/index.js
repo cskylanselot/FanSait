@@ -108,30 +108,15 @@ function disableClicks() {
 const myAudio = document.getElementById("audio");
 const playMusic = document.querySelector(".PlayMusic");
 const audioStop = document.querySelector(".StopPlayMusic");
-// const volumeControl = document.getElementById("volumeControl");
-
-// volumeControl.addEventListener("input", function () {
-//   myAudio.volume = this.value;
-// });
-// myAudio.volume = volumeControl.value;
-
 const volumeControl = document.getElementById("volumeControl");
 
-// Убедимся, что аудио воспроизводится только после пользовательского взаимодействия
-document.addEventListener(
-  "click",
-  () => {
-    myAudio.play(); // Только один раз, если надо
-  },
-  { once: true }
-);
-
 volumeControl.addEventListener("input", function () {
-  // Эта строка может быть проигнорирована на iOS, если нет активного воспроизведения
-  myAudio.volume = parseFloat(this.value);
+  myAudio.volume = this.value;
+  if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    document.getElementById("volumeControl").style.display = "none";
+  }
 });
-
-myAudio.volume = parseFloat(volumeControl.value);
+myAudio.volume = volumeControl.value;
 
 playMusic.addEventListener("click", function () {
   myAudio.play();
