@@ -200,28 +200,32 @@ const imgTyanRight = document.querySelector(".imgTyanRight");
 let isAnimating = false;
 
 BtnTyanLeft.addEventListener("click", function () {
-  isAnimating = true;
-  setTimeout(() => {
-    isAnimating = false;
-  }, 1000);
-  BtnTyanLeft.disabled = true;
-  BtnTyanRight.disabled = true;
-  BtnTyanLeft.classList.add("active");
-  if (BtnTyanLeft.classList.contains("active")) {
-    BtnTyanLeft.style.opacity = "0";
-    BtnTyanLeft.style.display = "none";
-    BtnTyanRight.style.opacity = "0";
-    BtnTyanRight.style.display = "none";
-    ContainerGray.style.display = "flex";
-    imgTyanLeft.style.display = "flex";
+  if (isAnimating == false) {
+    isAnimating = true;
     setTimeout(() => {
-      imgTyanLeft.style.opacity = "1";
-    }, 10);
+      isAnimating = false;
+    }, 2000);
+    BtnTyanLeft.classList.add("active");
+    if (BtnTyanLeft.classList.contains("active")) {
+      BtnTyanLeft.style.opacity = "0";
+      BtnTyanLeft.style.display = "none";
+      BtnTyanRight.style.opacity = "0";
+      BtnTyanRight.style.display = "none";
+      ContainerGray.style.display = "flex";
+      imgTyanLeft.style.display = "flex";
+      setTimeout(() => {
+        imgTyanLeft.style.opacity = "1";
+      }, 10);
+    }
   }
 });
 
 imgTyanLeft.addEventListener("click", function () {
   if (isAnimating == false) {
+    isAnimating = true;
+    setTimeout(() => {
+      isAnimating = false;
+    }, 1000);
     imgTyanLeft.style.opacity = "0";
     imgTyanLeft.style.display = "none";
     imgTyanLeftHentai.style.display = "flex";
@@ -232,27 +236,31 @@ imgTyanLeft.addEventListener("click", function () {
 });
 
 BtnTyanRight.addEventListener("click", function () {
-  isAnimating = true;
-  setTimeout(() => {
-    isAnimating = false;
-  }, 1000);
-  BtnTyanRight.disabled = true;
-  BtnTyanLeft.disabled = true;
-  BtnTyanRight.classList.add("active");
-  if (BtnTyanRight.classList.contains("active")) {
-    BtnTyanLeft.style.opacity = "0";
-    BtnTyanLeft.style.display = "none";
-    BtnTyanRight.style.opacity = "0";
-    BtnTyanRight.style.display = "none";
-    ContainerGray.style.display = "flex";
-    imgTyanRight.style.display = "flex";
+  if (isAnimating == false) {
+    isAnimating = true;
     setTimeout(() => {
-      imgTyanRight.style.opacity = "1";
-    }, 10);
+      isAnimating = false;
+    }, 2000);
+    BtnTyanRight.classList.add("active");
+    if (BtnTyanRight.classList.contains("active")) {
+      BtnTyanLeft.style.opacity = "0";
+      BtnTyanLeft.style.display = "none";
+      BtnTyanRight.style.opacity = "0";
+      BtnTyanRight.style.display = "none";
+      ContainerGray.style.display = "flex";
+      imgTyanRight.style.display = "flex";
+      setTimeout(() => {
+        imgTyanRight.style.opacity = "1";
+      }, 10);
+    }
   }
 });
 imgTyanRight.addEventListener("click", function () {
   if (isAnimating == false) {
+    isAnimating = true;
+    setTimeout(() => {
+      isAnimating = false;
+    }, 1000);
     imgTyanRight.style.opacity = "0";
     imgTyanRight.style.display = "none";
     imgTyanRightHentai.style.display = "flex";
@@ -264,14 +272,18 @@ imgTyanRight.addEventListener("click", function () {
 
 ContainerGray.addEventListener("click", function () {
   if (isAnimating == false) {
+    isAnimating = true;
+    setTimeout(() => {
+      isAnimating = false;
+    }, 2000);
     containerGrayEnd();
   }
 });
 
 function containerGrayEnd() {
-  localStorage.setItem("keyEnterLeft", 0);
-  localStorage.setItem("keyEnterRight", 0);
   setTimeout(() => {
+    localStorage.setItem("keyEnterLeft", 0);
+    localStorage.setItem("keyEnterRight", 0);
     ContainerGray.style.display = "none";
     imgTyanLeft.style.display = "none";
     imgTyanLeftHentai.style.display = "none";
@@ -280,10 +292,6 @@ function containerGrayEnd() {
     imgTyanRightHentai.style.display = "none";
     BtnTyanRight.style.opacity = "1";
   }, 1000);
-  setTimeout(() => {
-    BtnTyanLeft.disabled = false;
-    BtnTyanRight.disabled = false;
-  }, 2000);
   BtnTyanLeft.classList.remove("active");
   BtnTyanRight.classList.remove("active");
   imgTyanLeft.style.opacity = "0";
@@ -303,53 +311,65 @@ const imgTyanLeftHentai = document.querySelector(".imgTyanLeftHentai");
 const imgTyanRightHentai = document.querySelector(".imgTyanRightHentai");
 
 imgTyanLeftHentai.addEventListener("click", function () {
-  isAnimating = true;
-  myAudioH.volume = 0.5;
-  myAudioH.play();
-  const currentCount = (Number(localStorage.getItem("keyEnterLeft")) || 0) + 1;
-  setTimeout(() => {
+  if (isAnimating == false) {
+    isAnimating = true;
+    myAudioH.volume = 0.5;
+    myAudioH.play();
+    const currentCount =
+      (Number(localStorage.getItem("keyEnterLeft")) || 0) + 1;
     localStorage.setItem("keyEnterLeft", currentCount);
-  }, 1500);
-  if (currentCount === 3) {
-    imgTyanLeftHentai.style.opacity = "0";
     setTimeout(() => {
-      imgTyanLeftHentai.style.display = "none";
-    }, 1000);
-    setTimeout(() => {
-      video.style.display = "flex";
-      video.style.opacity = "1";
-      video.play();
-    }, 2000);
-    video.addEventListener("ended", () => {
-      containerGrayEnd();
-      video.style.display = "none";
-      video.style.opacity = "0";
-    });
+      isAnimating = false;
+    }, 1500);
+    if (currentCount === 1) {
+      setTimeout(() => {
+        imgTyanLeftHentai.style.opacity = "0";
+        imgTyanLeftHentai.style.display = "none";
+      }, 1000);
+      setTimeout(() => {
+        video.style.display = "flex";
+        video.style.opacity = "1";
+        video.play();
+        localStorage.setItem("keyEnterLeft", 0);
+        localStorage.setItem("keyEnterRight", 0);
+      }, 2000);
+      video.addEventListener("ended", () => {
+        containerGrayEnd();
+        video.style.display = "none";
+        video.style.opacity = "0";
+      });
+    }
   }
 });
 imgTyanRightHentai.addEventListener("click", function () {
-  isAnimating = true;
-  myAudioH.volume = 0.5;
-  myAudioH.play();
-  const currentCount = (Number(localStorage.getItem("keyEnterRight")) || 0) + 1;
-  setTimeout(() => {
+  if (isAnimating == false) {
+    isAnimating = true;
+    myAudioH.volume = 0.5;
+    myAudioH.play();
+    const currentCount =
+      (Number(localStorage.getItem("keyEnterRight")) || 0) + 1;
     localStorage.setItem("keyEnterRight", currentCount);
-  }, 1500);
-  if (currentCount === 3) {
-    imgTyanRightHentai.style.opacity = "0";
     setTimeout(() => {
-      imgTyanRightHentai.style.display = "none";
-    }, 1000);
-    setTimeout(() => {
-      video.style.display = "flex";
-      video.style.opacity = "1";
-      video.play();
-    }, 2000);
-    video.addEventListener("ended", () => {
-      containerGrayEnd();
-      video.style.display = "none";
-      video.style.opacity = "0";
-    });
+      isAnimating = false;
+    }, 1500);
+    if (currentCount === 1) {
+      imgTyanRightHentai.style.opacity = "0";
+      setTimeout(() => {
+        imgTyanRightHentai.style.display = "none";
+      }, 1000);
+      setTimeout(() => {
+        video.style.display = "flex";
+        video.style.opacity = "1";
+        video.play();
+        localStorage.setItem("keyEnterLeft", 0);
+        localStorage.setItem("keyEnterRight", 0);
+      }, 2000);
+      video.addEventListener("ended", () => {
+        containerGrayEnd();
+        video.style.display = "none";
+        video.style.opacity = "0";
+      });
+    }
   }
 });
 
