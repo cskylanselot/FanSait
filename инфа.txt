@@ -84,3 +84,4 @@
 https://tinypng.com/
 png webp
 ограничитель анимации
+controls atribut falls

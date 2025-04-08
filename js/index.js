@@ -2,119 +2,20 @@
 
 import { Anime, Manga, Japan, Top } from "./Content.js";
 
-// Для запуска видео/////////////////////////////////////////////////////////////
-
-const myAudioH = document.getElementById("audioH");
-const audioClick = document.querySelector(".audio");
-const video = document.getElementById("video");
-const imgTyanLeftHentai = document.querySelector(".imgTyanLeftHentai");
-const imgTyanRightHentai = document.querySelector(".imgTyanRightHentai");
-let enableClicks;
-
-imgTyanLeftHentai.addEventListener("click", function () {
-  myAudioH.volume = 0.5;
-  myAudioH.play();
-  const currentCount = (Number(localStorage.getItem("keyEnterLeft")) || 0) + 1;
-  localStorage.setItem("keyEnterLeft", currentCount);
-  if (currentCount === 1) {
-    imgTyanLeftHentai.style.opacity = "0";
-    setTimeout(() => {
-      imgTyanLeftHentai.style.display = "none";
-    }, 1000);
-    setTimeout(() => {
-      video.style.display = "flex";
-      video.style.opacity = "1";
-      enableClicks = disableClicks();
-      video.play().then(() => {
-        console.log("Video started");
-        localStorage.setItem("keyEnterLeft", 0);
-      });
-      video.addEventListener(
-        "ended",
-        () => {
-          if (typeof enableClicks === "function") {
-            enableClicks();
-            enableClicks = null;
-          }
-          containerGrayEnd();
-          video.style.display = "none";
-          video.style.opacity = "0";
-        },
-        { once: true }
-      );
-    }, 2000);
-  }
-});
-imgTyanRightHentai.addEventListener("click", function () {
-  myAudioH.volume = 0.5;
-  myAudioH.play();
-  const currentCount = (Number(localStorage.getItem("keyEnterRight")) || 0) + 1;
-  localStorage.setItem("keyEnterRight", currentCount);
-  if (currentCount === 1) {
-    imgTyanRightHentai.style.opacity = "0";
-    setTimeout(() => {
-      imgTyanRightHentai.style.display = "none";
-    }, 1000);
-    setTimeout(() => {
-      video.style.display = "flex";
-      video.style.opacity = "1";
-      enableClicks = disableClicks();
-      video.play().then(() => {
-        console.log("Video started");
-        localStorage.setItem("keyEnterRight", 0);
-      });
-      video.addEventListener(
-        "ended",
-        () => {
-          if (typeof enableClicks === "function") {
-            enableClicks();
-            enableClicks = null;
-          }
-          containerGrayEnd();
-          video.style.display = "none";
-          video.style.opacity = "0";
-        },
-        { once: true }
-      );
-    }, 2000);
-  }
-});
-
-// Функция блокировки кликов
-function disableClicks() {
-  const handler = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    e.stopImmediatePropagation();
-    return false;
-  };
-  // Блокируем события
-  document.addEventListener("click", handler, true);
-  document.addEventListener("mousedown", handler, true);
-  document.addEventListener("mouseup", handler, true);
-  document.addEventListener("contextmenu", handler, true);
-  // Возвращаем функцию для разблокировки
-  return () => {
-    document.removeEventListener("click", handler, true);
-    document.removeEventListener("mousedown", handler, true);
-    document.removeEventListener("mouseup", handler, true);
-    document.removeEventListener("contextmenu", handler, true);
-  };
-}
-
-// Для запуска видео end/////////////////////////////////////////////////////////
-
 // Для запуска музыки при клике //////////////////////////////////////////////
 const myAudio = document.getElementById("audio");
 const playMusic = document.querySelector(".PlayMusic");
 const audioStop = document.querySelector(".StopPlayMusic");
 const volumeControl = document.getElementById("volumeControl");
 
+window.onload = () => {
+  if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    volumeControl.style.display = "none";
+  }
+};
+
 volumeControl.addEventListener("input", function () {
   myAudio.volume = this.value;
-  if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    document.getElementById("volumeControl").style.display = "none";
-  }
 });
 myAudio.volume = volumeControl.value;
 
@@ -296,7 +197,15 @@ const ContainerGray = document.querySelector(".ContainerGray");
 const imgTyanLeft = document.querySelector(".imgTyanLeft");
 const imgTyanRight = document.querySelector(".imgTyanRight");
 
+let isAnimating = false;
+
 BtnTyanLeft.addEventListener("click", function () {
+  isAnimating = true;
+  setTimeout(() => {
+    isAnimating = false;
+  }, 1000);
+  BtnTyanLeft.disabled = true;
+  BtnTyanRight.disabled = true;
   BtnTyanLeft.classList.add("active");
   if (BtnTyanLeft.classList.contains("active")) {
     BtnTyanLeft.style.opacity = "0";
@@ -310,16 +219,25 @@ BtnTyanLeft.addEventListener("click", function () {
     }, 10);
   }
 });
+
 imgTyanLeft.addEventListener("click", function () {
-  imgTyanLeft.style.opacity = "0";
-  imgTyanLeft.style.display = "none";
-  imgTyanLeftHentai.style.display = "flex";
-  setTimeout(() => {
-    imgTyanLeftHentai.style.opacity = "1";
-  }, 10);
+  if (isAnimating == false) {
+    imgTyanLeft.style.opacity = "0";
+    imgTyanLeft.style.display = "none";
+    imgTyanLeftHentai.style.display = "flex";
+    setTimeout(() => {
+      imgTyanLeftHentai.style.opacity = "1";
+    }, 10);
+  }
 });
 
 BtnTyanRight.addEventListener("click", function () {
+  isAnimating = true;
+  setTimeout(() => {
+    isAnimating = false;
+  }, 1000);
+  BtnTyanRight.disabled = true;
+  BtnTyanLeft.disabled = true;
   BtnTyanRight.classList.add("active");
   if (BtnTyanRight.classList.contains("active")) {
     BtnTyanLeft.style.opacity = "0";
@@ -334,50 +252,105 @@ BtnTyanRight.addEventListener("click", function () {
   }
 });
 imgTyanRight.addEventListener("click", function () {
-  imgTyanRight.style.opacity = "0";
-  imgTyanRight.style.display = "none";
-  imgTyanRightHentai.style.display = "flex";
-  setTimeout(() => {
-    imgTyanRightHentai.style.opacity = "1";
-  }, 10);
+  if (isAnimating == false) {
+    imgTyanRight.style.opacity = "0";
+    imgTyanRight.style.display = "none";
+    imgTyanRightHentai.style.display = "flex";
+    setTimeout(() => {
+      imgTyanRightHentai.style.opacity = "1";
+    }, 10);
+  }
 });
 
 ContainerGray.addEventListener("click", function () {
-  containerGrayEnd();
+  if (isAnimating == false) {
+    containerGrayEnd();
+  }
 });
 
 function containerGrayEnd() {
+  localStorage.setItem("keyEnterLeft", 0);
+  localStorage.setItem("keyEnterRight", 0);
   setTimeout(() => {
     ContainerGray.style.display = "none";
+    imgTyanLeft.style.display = "none";
+    imgTyanLeftHentai.style.display = "none";
+    BtnTyanLeft.style.opacity = "1";
+    imgTyanRight.style.display = "none";
+    imgTyanRightHentai.style.display = "none";
+    BtnTyanRight.style.opacity = "1";
   }, 1000);
+  setTimeout(() => {
+    BtnTyanLeft.disabled = false;
+    BtnTyanRight.disabled = false;
+  }, 2000);
   BtnTyanLeft.classList.remove("active");
   BtnTyanRight.classList.remove("active");
   imgTyanLeft.style.opacity = "0";
-  setTimeout(() => {
-    imgTyanLeft.style.display = "none";
-  }, 1000);
   imgTyanLeftHentai.style.opacity = "0";
-  setTimeout(() => {
-    imgTyanLeftHentai.style.display = "none";
-  }, 1000);
   BtnTyanLeft.style.display = "flex";
-  setTimeout(() => {
-    BtnTyanLeft.style.opacity = "1";
-  }, 1000);
   imgTyanRight.style.opacity = "0";
-  setTimeout(() => {
-    imgTyanRight.style.display = "none";
-  }, 1000);
   imgTyanRightHentai.style.opacity = "0";
-  setTimeout(() => {
-    imgTyanRightHentai.style.display = "none";
-  }, 1000);
   BtnTyanRight.style.display = "flex";
-  setTimeout(() => {
-    BtnTyanRight.style.opacity = "1";
-  }, 1000);
-  ContainerGray.addEventListener("click", containerGrayEnd);
-  localStorage.setItem("keyEnterLeft", 0);
-  localStorage.setItem("keyEnterRight", 0);
 }
 // Tyan Click end/////////////////////////////////////
+
+// Для запуска видео/////////////////////////////////////////////////////////////
+
+const myAudioH = document.getElementById("audioH");
+const video = document.getElementById("video");
+const imgTyanLeftHentai = document.querySelector(".imgTyanLeftHentai");
+const imgTyanRightHentai = document.querySelector(".imgTyanRightHentai");
+
+imgTyanLeftHentai.addEventListener("click", function () {
+  isAnimating = true;
+  myAudioH.volume = 0.5;
+  myAudioH.play();
+  const currentCount = (Number(localStorage.getItem("keyEnterLeft")) || 0) + 1;
+  setTimeout(() => {
+    localStorage.setItem("keyEnterLeft", currentCount);
+  }, 1500);
+  if (currentCount === 3) {
+    imgTyanLeftHentai.style.opacity = "0";
+    setTimeout(() => {
+      imgTyanLeftHentai.style.display = "none";
+    }, 1000);
+    setTimeout(() => {
+      video.style.display = "flex";
+      video.style.opacity = "1";
+      video.play();
+    }, 2000);
+    video.addEventListener("ended", () => {
+      containerGrayEnd();
+      video.style.display = "none";
+      video.style.opacity = "0";
+    });
+  }
+});
+imgTyanRightHentai.addEventListener("click", function () {
+  isAnimating = true;
+  myAudioH.volume = 0.5;
+  myAudioH.play();
+  const currentCount = (Number(localStorage.getItem("keyEnterRight")) || 0) + 1;
+  setTimeout(() => {
+    localStorage.setItem("keyEnterRight", currentCount);
+  }, 1500);
+  if (currentCount === 3) {
+    imgTyanRightHentai.style.opacity = "0";
+    setTimeout(() => {
+      imgTyanRightHentai.style.display = "none";
+    }, 1000);
+    setTimeout(() => {
+      video.style.display = "flex";
+      video.style.opacity = "1";
+      video.play();
+    }, 2000);
+    video.addEventListener("ended", () => {
+      containerGrayEnd();
+      video.style.display = "none";
+      video.style.opacity = "0";
+    });
+  }
+});
+
+// Для запуска видео end/////////////////////////////////////////////////////////
