@@ -310,67 +310,194 @@ const video = document.getElementById("video");
 const imgTyanLeftHentai = document.querySelector(".imgTyanLeftHentai");
 const imgTyanRightHentai = document.querySelector(".imgTyanRightHentai");
 
+// imgTyanLeftHentai.addEventListener("click", function () {
+//   if (isAnimating == false) {
+//     isAnimating = true;
+//     myAudioH.volume = 0.5;
+//     myAudioH.play();
+//     const currentCount =
+//       (Number(localStorage.getItem("keyEnterLeft")) || 0) + 1;
+//     localStorage.setItem("keyEnterLeft", currentCount);
+//     setTimeout(() => {
+//       isAnimating = false;
+//     }, 1500);
+//     if (currentCount === 1) {
+//       setTimeout(() => {
+//         imgTyanLeftHentai.style.opacity = "0";
+//         imgTyanLeftHentai.style.display = "none";
+//       }, 1000);
+//       setTimeout(() => {
+//         video.style.display = "flex";
+//         video.style.opacity = "1";
+//         video.play();
+//         localStorage.setItem("keyEnterLeft", 0);
+//         localStorage.setItem("keyEnterRight", 0);
+//       }, 2000);
+//       video.addEventListener("ended", () => {
+//         containerGrayEnd();
+//         video.style.display = "none";
+//         video.style.opacity = "0";
+//       });
+//     }
+//   }
+// });
+
 imgTyanLeftHentai.addEventListener("click", function () {
   if (isAnimating == false) {
     isAnimating = true;
     myAudioH.volume = 0.5;
     myAudioH.play();
+
     const currentCount =
       (Number(localStorage.getItem("keyEnterLeft")) || 0) + 1;
     localStorage.setItem("keyEnterLeft", currentCount);
+
     setTimeout(() => {
       isAnimating = false;
     }, 1500);
+
     if (currentCount === 1) {
       setTimeout(() => {
         imgTyanLeftHentai.style.opacity = "0";
         imgTyanLeftHentai.style.display = "none";
       }, 1000);
+
       setTimeout(() => {
         video.style.display = "flex";
         video.style.opacity = "1";
         video.play();
+
+        // Блокируем анимации на время видео
+        isAnimating = true;
+
         localStorage.setItem("keyEnterLeft", 0);
         localStorage.setItem("keyEnterRight", 0);
+
+        let videoAlreadyClosed = false;
+
+        function handleVideoClose() {
+          if (videoAlreadyClosed) return;
+          videoAlreadyClosed = true;
+
+          containerGrayEnd();
+          video.style.display = "none";
+          video.style.opacity = "0";
+          isAnimating = false;
+        }
+
+        function onVideoEnded() {
+          handleVideoClose();
+        }
+
+        video.addEventListener("ended", onVideoEnded);
+
+        video.addEventListener("pause", () => {
+          const percent = video.currentTime / video.duration;
+
+          if (percent < 0.9) {
+            video.removeEventListener("ended", onVideoEnded);
+            handleVideoClose();
+          }
+        });
       }, 2000);
-      video.addEventListener("ended", () => {
-        containerGrayEnd();
-        video.style.display = "none";
-        video.style.opacity = "0";
-      });
     }
   }
 });
+
 imgTyanRightHentai.addEventListener("click", function () {
   if (isAnimating == false) {
     isAnimating = true;
     myAudioH.volume = 0.5;
     myAudioH.play();
+
     const currentCount =
       (Number(localStorage.getItem("keyEnterRight")) || 0) + 1;
     localStorage.setItem("keyEnterRight", currentCount);
+
     setTimeout(() => {
       isAnimating = false;
     }, 1500);
-    if (currentCount === 1) {
+
+    if (currentCount === 2) {
       imgTyanRightHentai.style.opacity = "0";
+
       setTimeout(() => {
         imgTyanRightHentai.style.display = "none";
       }, 1000);
+
       setTimeout(() => {
         video.style.display = "flex";
         video.style.opacity = "1";
         video.play();
+
+        // Во время проигрывания видео — блокируем анимации
+        isAnimating = true;
+
         localStorage.setItem("keyEnterLeft", 0);
         localStorage.setItem("keyEnterRight", 0);
+
+        let videoAlreadyClosed = false;
+
+        function handleVideoClose() {
+          if (videoAlreadyClosed) return;
+          videoAlreadyClosed = true;
+
+          containerGrayEnd();
+          video.style.display = "none";
+          video.style.opacity = "0";
+          isAnimating = false; // Разблокируем после завершения или закрытия видео
+        }
+
+        function onVideoEnded() {
+          handleVideoClose();
+        }
+
+        video.addEventListener("ended", onVideoEnded);
+
+        video.addEventListener("pause", () => {
+          const percent = video.currentTime / video.duration;
+
+          // Если пользователь закрыл вручную
+          if (percent < 0.9) {
+            video.removeEventListener("ended", onVideoEnded);
+            handleVideoClose();
+          }
+        });
       }, 2000);
-      video.addEventListener("ended", () => {
-        containerGrayEnd();
-        video.style.display = "none";
-        video.style.opacity = "0";
-      });
     }
   }
 });
+
+// imgTyanRightHentai.addEventListener("click", function () {
+//   if (isAnimating == false) {
+//     isAnimating = true;
+//     myAudioH.volume = 0.5;
+//     myAudioH.play();
+//     const currentCount =
+//       (Number(localStorage.getItem("keyEnterRight")) || 0) + 1;
+//     localStorage.setItem("keyEnterRight", currentCount);
+//     setTimeout(() => {
+//       isAnimating = false;
+//     }, 1500);
+//     if (currentCount === 2) {
+//       imgTyanRightHentai.style.opacity = "0";
+//       setTimeout(() => {
+//         imgTyanRightHentai.style.display = "none";
+//       }, 1000);
+//       setTimeout(() => {
+//         video.style.display = "flex";
+//         video.style.opacity = "1";
+//         video.play();
+//         localStorage.setItem("keyEnterLeft", 0);
+//         localStorage.setItem("keyEnterRight", 0);
+//       }, 2000);
+//       video.addEventListener("ended", () => {
+//         containerGrayEnd();
+//         video.style.display = "none";
+//         video.style.opacity = "0";
+//       });
+//     }
+//   }
+// });
 
 // Для запуска видео end/////////////////////////////////////////////////////////
