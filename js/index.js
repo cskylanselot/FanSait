@@ -301,6 +301,22 @@ function containerGrayEnd() {
   imgTyanRight.style.opacity = "0";
   imgTyanRightHentai.style.opacity = "0";
   BtnTyanRight.style.display = "flex";
+  videoContainer.style.display = "none";
+  videoContainer.style.opacity = "0";
+  video.style.display = "none";
+  video.style.opacity = "0";
+  videoGuren.style.display = "none";
+  videoGuren.style.opacity = "0";
+  videoBrothers.style.display = "none";
+  videoBrothers.style.opacity = "0";
+  videoLiar.style.display = "none";
+  videoLiar.style.opacity = "0";
+  videoGias.style.display = "none";
+  videoGias.style.opacity = "0";
+  videoAngels.style.display = "none";
+  videoAngels.style.opacity = "0";
+  videoGame.style.display = "none";
+  videoGame.style.opacity = "0";
 }
 // Tyan Click end/////////////////////////////////////
 
@@ -349,8 +365,6 @@ imgTyanLeftHentai.addEventListener("click", function () {
           videoAlreadyClosed = true;
 
           containerGrayEnd();
-          video.style.display = "none";
-          video.style.opacity = "0";
           setTimeout(() => {
             isAnimating = false;
           }, 3000);
@@ -414,8 +428,6 @@ imgTyanRightHentai.addEventListener("click", function () {
           videoAlreadyClosed = true;
 
           containerGrayEnd();
-          video.style.display = "none";
-          video.style.opacity = "0";
           setTimeout(() => {
             isAnimating = false;
           }, 3000);
@@ -498,6 +510,10 @@ Openings.addEventListener("click", function () {
 
 GurenClick.addEventListener("click", function () {
   if (isAnimating == false) {
+    BtnTyanLeft.style.opacity = "0";
+    BtnTyanLeft.style.display = "none";
+    BtnTyanRight.style.opacity = "0";
+    BtnTyanRight.style.display = "none";
     OpeningsContainer.style.display = "none";
     OpeningsContainer.style.opacity = "0";
     videoContainer.style.display = "flex";
@@ -513,8 +529,6 @@ GurenClick.addEventListener("click", function () {
       videoAlreadyClosed = true;
 
       containerGrayEnd();
-      videoGuren.style.display = "none";
-      videoGuren.style.opacity = "0";
       isAnimating = false;
     }
 
@@ -537,6 +551,10 @@ GurenClick.addEventListener("click", function () {
 
 BrothersClick.addEventListener("click", function () {
   if (isAnimating == false) {
+    BtnTyanLeft.style.opacity = "0";
+    BtnTyanLeft.style.display = "none";
+    BtnTyanRight.style.opacity = "0";
+    BtnTyanRight.style.display = "none";
     OpeningsContainer.style.display = "none";
     OpeningsContainer.style.opacity = "0";
     videoContainer.style.display = "flex";
@@ -552,8 +570,6 @@ BrothersClick.addEventListener("click", function () {
       videoAlreadyClosed = true;
 
       containerGrayEnd();
-      videoBrothers.style.display = "none";
-      videoBrothers.style.opacity = "0";
       isAnimating = false;
     }
 
@@ -576,6 +592,10 @@ BrothersClick.addEventListener("click", function () {
 
 LiarClick.addEventListener("click", function () {
   if (isAnimating == false) {
+    BtnTyanLeft.style.opacity = "0";
+    BtnTyanLeft.style.display = "none";
+    BtnTyanRight.style.opacity = "0";
+    BtnTyanRight.style.display = "none";
     OpeningsContainer.style.display = "none";
     OpeningsContainer.style.opacity = "0";
     videoContainer.style.display = "flex";
@@ -591,8 +611,6 @@ LiarClick.addEventListener("click", function () {
       videoAlreadyClosed = true;
 
       containerGrayEnd();
-      videoLiar.style.display = "none";
-      videoLiar.style.opacity = "0";
       isAnimating = false;
     }
 
@@ -614,6 +632,10 @@ LiarClick.addEventListener("click", function () {
 });
 GiasClick.addEventListener("click", function () {
   if (isAnimating == false) {
+    BtnTyanLeft.style.opacity = "0";
+    BtnTyanLeft.style.display = "none";
+    BtnTyanRight.style.opacity = "0";
+    BtnTyanRight.style.display = "none";
     OpeningsContainer.style.display = "none";
     OpeningsContainer.style.opacity = "0";
     videoContainer.style.display = "flex";
@@ -629,8 +651,6 @@ GiasClick.addEventListener("click", function () {
       videoAlreadyClosed = true;
 
       containerGrayEnd();
-      videoGias.style.display = "none";
-      videoGias.style.opacity = "0";
       isAnimating = false;
     }
 
@@ -652,6 +672,10 @@ GiasClick.addEventListener("click", function () {
 });
 AngelsClick.addEventListener("click", function () {
   if (isAnimating == false) {
+    BtnTyanLeft.style.opacity = "0";
+    BtnTyanLeft.style.display = "none";
+    BtnTyanRight.style.opacity = "0";
+    BtnTyanRight.style.display = "none";
     OpeningsContainer.style.display = "none";
     OpeningsContainer.style.opacity = "0";
     videoContainer.style.display = "flex";
@@ -667,8 +691,6 @@ AngelsClick.addEventListener("click", function () {
       videoAlreadyClosed = true;
 
       containerGrayEnd();
-      videoAngels.style.display = "none";
-      videoAngels.style.opacity = "0";
       isAnimating = false;
     }
 
@@ -690,6 +712,10 @@ AngelsClick.addEventListener("click", function () {
 });
 GameClick.addEventListener("click", function () {
   if (isAnimating == false) {
+    BtnTyanLeft.style.opacity = "0";
+    BtnTyanLeft.style.display = "none";
+    BtnTyanRight.style.opacity = "0";
+    BtnTyanRight.style.display = "none";
     OpeningsContainer.style.display = "none";
     OpeningsContainer.style.opacity = "0";
     videoContainer.style.display = "flex";
@@ -705,8 +731,6 @@ GameClick.addEventListener("click", function () {
       videoAlreadyClosed = true;
 
       containerGrayEnd();
-      videoGame.style.display = "none";
-      videoGame.style.opacity = "0";
       isAnimating = false;
     }
 
