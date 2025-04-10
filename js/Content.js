@@ -275,7 +275,7 @@ function Top() {
   mainContainer.innerHTML = `<div class="sliderMain">
         <button class="sliderBtnPrev">&lt;</button>
         <div class="sliderContainer">
-          <div class="slider " id="Top">
+          <div class="slider" id="Top">
           <div class="slide"><img src="img/Гуренн-Лаганн.webp" /></div>
           <div class="slide">
             <img src="img/СтальнойАлхимик.webp" alt="" />
@@ -288,7 +288,7 @@ function Top() {
           <div class="slide">
             <img src="img/NoGameNoLife.webp" alt="" />
           </div>
-          <div class="slide"><img src="img/Гуренн-Лаганн.webp" /></div>
+          <div class="slide GurenClick"><img src="img/Гуренн-Лаганн.webp" /></div>
         </div>
         </div>
         <button class="sliderBtnNext">&gt;</button>

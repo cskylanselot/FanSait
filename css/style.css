@@ -45,6 +45,19 @@ button {
   inset-inline: 0;
   inset-block-start: calc(20%);
 }
+.videoClass {
+  width: 100vw;
+  height: 50vh;
+  margin: 0 auto;
+  display: none;
+  opacity: 0;
+  transition: 1s ease;
+  position: fixed;
+  z-index: 12;
+  margin-inline: auto;
+  inset-inline: 0;
+  inset-block-start: calc(20%);
+}
 .backSide img {
   filter: brightness(70%);
   width: 100%;
@@ -245,14 +258,76 @@ button {
 }
 .audio {
   margin: 0 auto;
-  margin-top: 3rem;
   width: 33%;
   height: 10rem;
   background-image: url(../img/player.webp);
   background-size: cover;
   position: relative;
   z-index: 1;
+}
+.Openings {
+  width: 10rem;
+  height: 5rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
   cursor: pointer;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.OpeningsContainer {
+  width: 50%;
+  height: 20rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  position: fixed;
+  z-index: 10;
+  color: white;
+  background-color: black;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 3rem;
+  transition: 0.5s ease;
+  display: none;
+  opacity: 0;
+  inset-inline-start: calc(25%);
+}
+.hover:hover {
+  cursor: pointer;
+  color: blue;
+}
+.videoContainer {
+  width: 100%;
+  height: 50vh;
+  margin: 0 auto;
+  display: none;
+  opacity: 0;
+  transition: 1s ease;
+  position: fixed;
+  z-index: 12;
+  margin-inline: auto;
+  inset-inline: 0;
+  inset-block-start: calc(20%);
+}
+.krestik {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 13;
+  cursor: pointer;
+  background-image: url(../img/foni-papik-pro-hz95-p-kartinki-krasnii-krest-na-prozrachnom-fone-3-removebg-preview.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .audioPlayer {
   width: 100%;
@@ -263,18 +338,21 @@ button {
   background-position: right 0;
 }
 .PlayMusic {
-  width: 100%;
+  width: 3rem;
   height: 3rem;
+  margin: 0 auto;
   background-image: url(../img/PlayerPlay.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
   z-index: 1;
+  cursor: pointer;
 }
 .StopPlayMusic {
-  width: 100%;
+  width: 3rem;
   height: 3rem;
+  margin: 0 auto;
   background-image: url(../img/StopPlayMusic.webp);
   background-size: contain;
   background-repeat: no-repeat;
@@ -282,6 +360,7 @@ button {
   position: relative;
   z-index: 1;
   display: none;
+  cursor: pointer;
 }
 .range {
   width: 100%;
@@ -427,10 +506,12 @@ button {
 }
 
 @media screen and (max-width: 75rem) {
+  .Openings {
+    margin-top: 5rem;
+  }
   .audio {
     width: 50%;
     height: 50%;
-    margin-top: 5rem;
   }
   .slider {
     height: 20rem;
@@ -442,7 +523,6 @@ button {
 @media screen and (max-width: 64rem) {
   .audio {
     width: 60%;
-    margin-top: 5rem;
   }
   .btnTyanLeft {
     width: 7rem;
@@ -485,6 +565,15 @@ button {
   .slider {
     height: 15rem;
   }
+  .OpeningsContainer {
+    width: 100%;
+    font-size: 1.5rem;
+    margin-top: 0rem;
+    inset-inline-start: calc(0%);
+  }
+  .videoContainer {
+    margin-top: 4rem;
+  }
   .navMenu {
     flex-wrap: wrap;
     height: 8rem;
@@ -503,7 +592,6 @@ button {
   .audio {
     width: 50%;
     height: 50%;
-    margin-top: 5rem;
   }
   .audioPlayer {
     height: 5rem;
@@ -547,7 +635,6 @@ button {
   .audio {
     width: 50%;
     height: 50%;
-    margin-top: 5rem;
     background-image: url(../img/playerMobile.png);
   }
   .navElement {
