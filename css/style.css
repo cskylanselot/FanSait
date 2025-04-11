@@ -547,6 +547,7 @@ button {
   .slideText {
     line-height: 1.2;
     min-height: 40rem;
+    padding: 0 0.5rem;
   }
   .imgTyanLeft {
     max-width: 80vw;
@@ -658,6 +659,12 @@ button {
   }
   .navElement:hover {
     font-size: 1rem;
+    color: white;
+  }
+  .Openings:hover {
+    font-size: 2rem;
+  }
+  .hover:hover {
     color: white;
   }
   .PlayMusic {
