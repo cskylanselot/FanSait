@@ -213,8 +213,9 @@ button {
   margin: 0 auto;
   max-width: 100rem;
   height: 4rem;
-  position: relative;
-  z-index: 2;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 .navMenu {
   max-width: 100%;
@@ -272,12 +273,17 @@ button {
   margin-top: 3rem;
   position: relative;
   z-index: 1;
+  transition: 0.5s ease;
   cursor: pointer;
-  color: white;
+  color: red;
   font-size: 2rem;
   display: flex;
+  opacity: 0;
   align-items: center;
   justify-content: center;
+}
+.Openings:hover {
+  font-size: 3rem;
 }
 .OpeningsContainer {
   width: 50%;
@@ -287,24 +293,26 @@ button {
   position: fixed;
   z-index: 10;
   color: white;
-  background-color: black;
+  background-image: url(../img/red-and-black-anime-olcqp934lcn1bgq5.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
   font-size: 2rem;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   line-height: 3rem;
-  transition: 0.5s ease;
+  transition: 1s ease;
   display: none;
   opacity: 0;
   inset-inline-start: calc(25%);
 }
 .hover:hover {
   cursor: pointer;
-  color: blue;
+  color: red;
 }
 .videoContainer {
-  width: 100%;
+  width: 50%;
   height: 50vh;
   margin: 0 auto;
   display: none;
@@ -331,7 +339,7 @@ button {
 }
 .audioPlayer {
   width: 100%;
-  height: 7rem;
+  height: 6rem;
   background-image: url(../img/audio-player-for-windows-mac.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -366,7 +374,6 @@ button {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
 }
 .sliderMain {
   max-width: 60rem;
@@ -440,8 +447,6 @@ button {
 }
 .textContainer {
   margin: 0 auto;
-  padding: 1rem;
-  margin-top: 1rem;
   max-width: 80rem;
   height: 30rem;
   color: white;
@@ -465,8 +470,8 @@ button {
   min-height: 30rem;
   display: flex;
   justify-content: center;
-  padding: 1rem;
-  line-height: 1.5;
+  padding: 0 1rem 0 1rem;
+  line-height: 1.2;
   align-items: center;
   text-align: justify;
   font-size: clamp(1.2rem, 4vw, 1.7rem);
@@ -516,13 +521,14 @@ button {
   .slider {
     height: 20rem;
   }
-  .textContainer {
-    max-width: 70rem;
-  }
 }
 @media screen and (max-width: 64rem) {
   .audio {
     width: 60%;
+  }
+  .videoContainer {
+    width: 100%;
+    margin-top: 0rem;
   }
   .btnTyanLeft {
     width: 7rem;
@@ -532,13 +538,15 @@ button {
     width: 7rem;
     height: 7rem;
   }
-  .textContainer {
-    max-width: 60rem;
+  .mainContainer {
+    max-height: 80rem;
+  }
+  .sliderHead {
+    min-height: 50rem;
   }
   .slideText {
-    padding: 0.8rem;
-    min-height: 15rem;
     line-height: 1.2;
+    min-height: 40rem;
   }
   .imgTyanLeft {
     max-width: 80vw;
@@ -567,12 +575,12 @@ button {
   }
   .OpeningsContainer {
     width: 100%;
+    height: 16rem;
     font-size: 1.5rem;
+    line-height: 2.8rem;
     margin-top: 0rem;
     inset-inline-start: calc(0%);
-  }
-  .videoContainer {
-    margin-top: 4rem;
+    top: 25%;
   }
   .navMenu {
     flex-wrap: wrap;
@@ -600,10 +608,17 @@ button {
     width: 100%;
     height: 2rem;
   }
+  .mainContainer {
+    max-height: 100rem;
+  }
+  .textContainer {
+    height: 50rem;
+  }
+  .sliderHead {
+    min-height: 50rem;
+  }
   .slideText {
-    padding: 1rem;
-    min-height: 12rem;
-    line-height: 1.5rem;
+    min-height: 40rem;
   }
   .imgTyanLeft {
     max-width: 90vw;
@@ -651,11 +666,19 @@ button {
   .StopPlayMusic {
     height: 2rem;
   }
+  .videoContainer {
+    margin-top: 1rem;
+  }
+  .textContainer {
+    height: 45rem;
+    margin: 0 auto;
+  }
+  .sliderHead {
+    min-height: 45rem;
+  }
   .slideText {
-    padding: 1rem;
-    line-height: 1rem;
-    min-height: 10rem;
-    font-size: 1rem;
+    line-height: 1.5rem;
+    font-size: 1.3rem;
   }
   .btnTyanLeft {
     width: 5rem;

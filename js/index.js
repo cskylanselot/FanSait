@@ -47,6 +47,7 @@ const navElement = document.querySelectorAll(".navElement");
 function removeClaslist() {
   navElement.forEach(function (navRise) {
     navRise.classList.remove("rise");
+    Openings.style.opacity = "0";
   });
 }
 
@@ -74,6 +75,7 @@ navTop.addEventListener("click", function () {
   restartSlider();
   removeClaslist();
   navTop.classList.add("rise");
+  Openings.style.opacity = "1";
 });
 
 // End Js Header////////////////////////////////////////////////////////////
@@ -89,7 +91,6 @@ function restartSlider() {
   const prevButton = document.querySelector(".sliderBtnPrev");
   const sliderHead = document.querySelector(".sliderHead");
   const totalText = slides.length;
-
   let currentIndex = 0;
 
   function updateSliderPosition() {
@@ -317,6 +318,7 @@ function containerGrayEnd() {
   videoAngels.style.opacity = "0";
   videoGame.style.display = "none";
   videoGame.style.opacity = "0";
+  VideoEnd();
 }
 // Tyan Click end/////////////////////////////////////
 
@@ -495,17 +497,29 @@ function VideoEnd() {
   videoAngels.style.opacity = "0";
   videoGame.style.display = "none";
   videoGame.style.opacity = "0";
-  OpeningsContainer.style.display = "none";
   OpeningsContainer.style.opacity = "0";
-  ContainerGray.style.display = "none";
   videoContainer.style.display = "none";
   videoContainer.style.opacity = "0";
+  setTimeout(() => {
+    ContainerGray.style.display = "none";
+    OpeningsContainer.style.display = "none";
+    BtnTyanLeft.style.opacity = "1";
+    BtnTyanRight.style.opacity = "1";
+  }, 1000);
+  BtnTyanLeft.style.display = "flex";
+  BtnTyanRight.style.display = "flex";
 }
 
 Openings.addEventListener("click", function () {
+  setTimeout(() => {
+    OpeningsContainer.style.opacity = "1";
+  }, 500);
   OpeningsContainer.style.display = "flex";
-  OpeningsContainer.style.opacity = "1";
   ContainerGray.style.display = "flex";
+  BtnTyanLeft.style.opacity = "0";
+  BtnTyanLeft.style.display = "none";
+  BtnTyanRight.style.opacity = "0";
+  BtnTyanRight.style.display = "none";
 });
 
 GurenClick.addEventListener("click", function () {
@@ -522,6 +536,7 @@ GurenClick.addEventListener("click", function () {
     videoGuren.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoGuren.play();
+    videoGuren.volume = 0.5;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
@@ -563,6 +578,7 @@ BrothersClick.addEventListener("click", function () {
     videoBrothers.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoBrothers.play();
+    videoBrothers.volume = 0.5;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
@@ -604,6 +620,7 @@ LiarClick.addEventListener("click", function () {
     videoLiar.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoLiar.play();
+    videoLiar.volume = 0.5;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
@@ -644,6 +661,7 @@ GiasClick.addEventListener("click", function () {
     videoGias.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoGias.play();
+    videoGias.volume = 0.5;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
@@ -684,6 +702,7 @@ AngelsClick.addEventListener("click", function () {
     videoAngels.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoAngels.play();
+    videoAngels.volume = 0.5;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
@@ -724,6 +743,7 @@ GameClick.addEventListener("click", function () {
     videoGame.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoGame.play();
+    videoGame.volume = 0.5;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
