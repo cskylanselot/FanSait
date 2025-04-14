@@ -37,7 +37,6 @@ audioStop.addEventListener("click", function () {
 // Для запуска музыки при клике end/////////////////////////////////////////
 
 // JS Header/////////////////////////////////////////////////////////////////////
-
 const navAnime = document.querySelector(".navAnime");
 const navManga = document.querySelector(".navManga");
 const navJapan = document.querySelector(".navJapan");
@@ -48,6 +47,7 @@ function removeClaslist() {
   navElement.forEach(function (navRise) {
     navRise.classList.remove("rise");
     Openings.style.opacity = "0";
+    Openings.style.display = "none";
   });
 }
 
@@ -76,11 +76,12 @@ navTop.addEventListener("click", function () {
   removeClaslist();
   navTop.classList.add("rise");
   Openings.style.opacity = "1";
+  Openings.style.display = "flex";
 });
 
 // End Js Header////////////////////////////////////////////////////////////
 
-// SliderList + opening///////////////////////////////////////////////////////////////
+// SliderList///////////////////////////////////////////////////////////////
 
 function restartSlider() {
   const textContainer = document.querySelector(".textContainer");
@@ -456,6 +457,9 @@ imgTyanRightHentai.addEventListener("click", function () {
 });
 
 // Для запуска видео end/////////////////////////////////////////////////////////
+
+// Для проигрывания опенингов/////////////////////////////////////////////////////
+
 const krestik = document.querySelectorAll(".krestik");
 const Openings = document.querySelector(".Openings");
 const OpeningsContainer = document.querySelector(".OpeningsContainer");
@@ -536,7 +540,7 @@ GurenClick.addEventListener("click", function () {
     videoGuren.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoGuren.play();
-    videoGuren.volume = 0.5;
+    videoGuren.volume = 0.3;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
@@ -578,7 +582,7 @@ BrothersClick.addEventListener("click", function () {
     videoBrothers.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoBrothers.play();
-    videoBrothers.volume = 0.5;
+    videoBrothers.volume = 0.3;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
@@ -620,7 +624,7 @@ LiarClick.addEventListener("click", function () {
     videoLiar.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoLiar.play();
-    videoLiar.volume = 0.5;
+    videoLiar.volume = 0.3;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
@@ -661,7 +665,7 @@ GiasClick.addEventListener("click", function () {
     videoGias.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoGias.play();
-    videoGias.volume = 0.5;
+    videoGias.volume = 0.3;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
@@ -702,7 +706,7 @@ AngelsClick.addEventListener("click", function () {
     videoAngels.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoAngels.play();
-    videoAngels.volume = 0.5;
+    videoAngels.volume = 0.3;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
@@ -743,7 +747,7 @@ GameClick.addEventListener("click", function () {
     videoGame.style.opacity = "1";
     ContainerGray.style.display = "flex";
     videoGame.play();
-    videoGame.volume = 0.5;
+    videoGame.volume = 0.3;
     let videoAlreadyClosed = false;
 
     function handleVideoClose() {
@@ -770,3 +774,5 @@ GameClick.addEventListener("click", function () {
     });
   }
 });
+
+// Конец опенингов/////////////////////////////////////////////////////////

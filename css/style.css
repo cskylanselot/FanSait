@@ -266,6 +266,12 @@ button {
   position: relative;
   z-index: 1;
 }
+.OpeningsFiller {
+  width: 10rem;
+  height: 5rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
 .Openings {
   width: 10rem;
   height: 5rem;
@@ -277,7 +283,7 @@ button {
   cursor: pointer;
   color: red;
   font-size: 2rem;
-  display: flex;
+  display: none;
   opacity: 0;
   align-items: center;
   justify-content: center;
@@ -474,6 +480,7 @@ button {
   line-height: 1.2;
   align-items: center;
   text-align: justify;
+  letter-spacing: normal;
   font-size: clamp(1.2rem, 4vw, 1.7rem);
   box-sizing: border-box;
   word-break: break-word;
@@ -619,7 +626,7 @@ button {
     min-height: 50rem;
   }
   .slideText {
-    min-height: 40rem;
+    min-height: 35rem;
   }
   .imgTyanLeft {
     max-width: 90vw;
@@ -677,15 +684,15 @@ button {
     margin-top: 1rem;
   }
   .textContainer {
-    height: 45rem;
+    height: 35rem;
     margin: 0 auto;
   }
   .sliderHead {
-    min-height: 45rem;
+    min-height: 35rem;
   }
   .slideText {
     line-height: 1.5rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   .btnTyanLeft {
     width: 5rem;
