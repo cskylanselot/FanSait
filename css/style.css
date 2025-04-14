@@ -667,6 +667,9 @@ button {
   .navElement:hover {
     font-size: 1rem;
     color: white;
+    -webkit-box-shadow: 0px 0px 0px -0px rgba(138, 138, 209, 1);
+    -moz-box-shadow: 0px 0px 0px -0px rgba(138, 138, 209, 1);
+    box-shadow: 0px 0px 0px -0px rgba(138, 138, 209, 1);
   }
   .Openings:hover {
     font-size: 2rem;
