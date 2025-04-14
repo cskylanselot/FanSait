@@ -480,7 +480,7 @@ button {
   line-height: 1.2;
   align-items: center;
   text-align: justify;
-  letter-spacing: normal;
+  letter-spacing: -1px;
   font-size: clamp(1.2rem, 4vw, 1.7rem);
   box-sizing: border-box;
   word-break: break-word;
