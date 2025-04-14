@@ -626,7 +626,7 @@ button {
     min-height: 50rem;
   }
   .slideText {
-    min-height: 35rem;
+    min-height: 40rem;
   }
   .imgTyanLeft {
     max-width: 90vw;
@@ -684,11 +684,11 @@ button {
     margin-top: 1rem;
   }
   .textContainer {
-    height: 35rem;
+    height: 40rem;
     margin: 0 auto;
   }
   .sliderHead {
-    min-height: 35rem;
+    min-height: 40rem;
   }
   .slideText {
     line-height: 1.5rem;
